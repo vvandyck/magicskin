@@ -1,0 +1,7 @@
+width:<%=@skin.width%><br>
+height:<%=@skin.height%><br>
+public:<%=@skin.public%><br>
+active:<%=@skin.active%><br>
+image:<%=image_tag "/images/#{@skin.images[0].name}" %><br>
+<%= link_to 'Edit', edit_skin_path(@skin) %> |
+<%= link_to 'Back', skins_path %>

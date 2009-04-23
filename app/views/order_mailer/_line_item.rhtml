@@ -1,0 +1,5 @@
+<%= sprintf("%2d x %s" ,
+line_item.quantity, truncate("item", 50)) -%>, (item price:<%= number_to_currency line_item.unit_price, {:unit => "€ ", :separator => ".",
+:delimiter => ""} -%> + postage: <%= number_to_currency line_item.unit_postage, {:unit => "€ ", :separator => ".",
+:delimiter => ""} -%>) = total <%= number_to_currency line_item.total_price, {:unit => "€ ", :separator => ".",
+:delimiter => ""} -%>

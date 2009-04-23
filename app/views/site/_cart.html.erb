@@ -1,0 +1,13 @@
+
+<h1>Your Shopping Basket</h1>
+<br/>
+
+<%= render(:partial => "/site/cart_item" , :collection => cart.items) %>
+<div id="total-line" >
+  <div id="total-text">Total</div>
+  <div id="total-amount" ><%= number_to_euros(cart.total_price) %></div>
+</div>
+<br/>
+<%= button_to 'checkout', {:action => :checkout}, {:class=>'shop-button'} %>
+<%= button_to 'empty basket', {:action => :empty_cart}, {:class=>'shop-button'} %>
+<br/>

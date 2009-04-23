@@ -1,0 +1,14 @@
+<% if cart_item == @current_item %>
+  <div id="current_item" >
+<% end %>
+<div class="cart-item">
+  <div class="quantity"><%= cart_item.quantity %>&nbsp;&times;&nbsp;</div>
+
+  <div class="item-price" >&nbsp;<%= number_to_euros(cart_item.price) %>&nbsp;</div>
+  <%= button_to 'remove item' , {:action => :remove_item ,
+    :id => cart_item.item}, {:class=>'shop-button'} %>
+</div>
+<% if cart_item == @current_item %>
+  </div>
+<% end %>
+

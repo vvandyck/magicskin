@@ -1,0 +1,42 @@
+<div id="order-list">
+  <h1>Order list</h1>
+
+  <table cellpadding="5" cellspacing="0">
+    <tr>
+      <th>order no.</th><th>payment type</th><th>status</th><th>order date</th>
+    </tr>
+    <% for order in @orders %>
+
+        <tr valign="top" class="list-line-odd">
+          <td><%=order.id%></td><td><%=order.pay_type%></td>
+          <td><%=Order::ORDER_STATUS[order.status][0]%></td><td><%=order.created_at%></td>
+          <% if order.status == (Order::NEW) %>
+            <td><%= link_to "Cancel Order", :action => :cancel_order, :order_id => order %></td>
+          <%  end %>
+        </tr>
+        <%if order.line_items.size>0%>
+          <tr><td colspan="5" align="right">
+              <table cellpadding="0" cellspacing="5">
+                <tr>
+                  <th>id</th><th>name</th><th>quantity</th><th>unit price</th>
+                  <th>unit postage</th><th>total price inc. postage</th>
+                </tr>
+                <% for line_item in order.line_items %>
+                  <tr>
+                    <td><%=line_item.skin_id%></td><td><%=line_item.name%>
+                   
+                    <td><%=line_item.quantity%></td><td><%=number_to_euros(line_item.unit_price)%></td>
+                    <td><%= number_to_euros(line_item.unit_postage)%></td>
+                    <td><%= number_to_euros(line_item.total_price+(line_item.unit_postage*line_item.quantity))%></td>
+                  </tr>
+                <%end%>
+              </table>
+          </td></tr>
+        <%end%>
+
+    <% end %>
+  </table>
+
+</div>
+
+<br>

@@ -1,0 +1,22 @@
+<h1>Listing skins</h1>
+
+<table>
+  <tr>
+  </tr>
+
+<% for skin in @skins %>
+  <tr>
+    <td> skin id:</td><td><%=skin.id%></td>
+    
+    <td>width:   <%=skin.width%></td>
+    <td>height:  <%=skin.height%></td>
+    <td><%= link_to 'Show', skin %></td>
+    <td><%= link_to 'Edit', edit_skin_path(skin) %></td>
+    <td><%= link_to 'Destroy', skin, :confirm => 'Are you sure?', :method => :delete %></td>
+  </tr>
+<% end %>
+</table>
+
+<br />
+
+<%= link_to 'New skin', new_skin_path %>

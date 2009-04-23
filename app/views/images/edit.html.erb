@@ -1,0 +1,15 @@
+<h1>Editing images</h1>
+<% form_for(@image) do |f| %>
+  <%=text_field :image , :name%>
+ <br>
+
+   Skin:<%=@image.skin_id%>
+
+ <%= f.error_messages %>
+<p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @image %> |
+<%= link_to 'Back', images_path %>

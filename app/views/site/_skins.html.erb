@@ -1,0 +1,17 @@
+<% for skin in @skins %>
+    <td>
+      <tr>
+        <td><%=image_tag "/images/#{skin.images[0].name}" %></td>
+      </tr>
+      <tr>
+        <td>width:<%=skin.width%></td>
+        <td>height:<%=skin.height%></td>
+        <td>
+          <% form_remote_tag :url => { :action => :add_to_cart, :id => skin } do %>
+            <%= button_to 'add to basket', {}, {:class=>'shop-button'}%>
+          <% end %>
+        </td>
+      </tr>
+    </td>
+  <% end %>
+

@@ -1,0 +1,18 @@
+Dear <%= @order.address.first_name %>,
+
+Thank you for your recent order from magicskin.
+
+You ordered the following items:
+<%= render(:partial => "line_item" , :collection => @order.line_items) %>
+
+Total amount: <%=number_to_currency @order.total_price, {:unit => "€ ", :separator => ".",
+:delimiter => ""}  %>
+
+Please transfer the total amount to the following bank account.
+
+Account: Anna Rosa Hiort-Lorenzen
+Account IBAN: DK6430004280289124
+BIC / SWIFT code: DABADKKK
+Bank: Danske Bank, Copenhagen
+
+We will ship your order as soon as we receive your payment.

@@ -1,0 +1,262 @@
+
+
+body, p, ol, ul, td {
+  font-family: verdana, arial, helvetica, sans-serif;
+  font-size:   12px;
+}
+
+pre, tt {
+    font-size: 100%;
+}
+pre {
+    border-left: 7px solid #600000;
+    padding-left: 1em;
+}
+pre.shell {
+    border: 0px solid black;
+    padding: 0.5em;
+    background: #000;
+    color: #00FF00;
+}
+pre.rubycode {
+    border: 2px solid  #600;
+    padding: 0.5em;
+    background: #FFD0D0;
+}
+pre.testcode {
+    border: 2px solid  #006;
+    padding: 0.5em;
+    background: #D0D0FF;
+}
+pre.code {
+    border: 2px solid black;
+    padding: 0.5em;
+}
+body {
+    background:     #ffffff;
+}
+a {
+    text-decoration: none;
+}
+h1, h2, h3, h4, h5, h6 {
+    color:       #400000;
+}
+a:link {
+    color:         #800000;
+}
+a:visited {
+    color:         #800000
+}
+a:hover {
+    color:         #ff0000;
+}
+.sidebar {
+    font-size:    smaller;
+    color:        #b0b0b0;
+}
+.sidebar a:link {
+    color:        #400000;
+}
+.sidebar a:visited {
+    color:         #400000;
+}
+.sidebar a:hover {
+    color:         #a00000;
+}
+.sidebarwarning {
+    color:         #202020;
+    padding-left:  1em;
+}
+.sidebarholder {
+    border-left:   2px solid #600000;
+    padding:       0px;
+    margin-bottom: 16px;
+}
+.sidebartitle {
+    font-weight:  bold;
+    background:   #e8e0e0;
+    color:        #400000;
+    padding-left: 8px;
+    padding-top:  8px;
+    border-bottom: 1px solid #600000;
+}
+.sidebarbody {
+    background:   #ffffff;
+    color:        #202020;
+    padding-left: 8px;
+}
+.sidebartext {
+    color:        #404040;
+}
+.sidebar TABLE TABLE TD A {
+    font-weight: bold;
+}
+.sidebar TABLE TABLE TD A:hover {
+    background:   #e0e0e0;
+}
+.sidebar TABLE TABLE, .sidebar TABLE TABLE TD {
+    color:      #808080;
+    padding-right: 0.5em;
+    padding-left:  0em;
+    padding-top:   0em;
+    padding-bottom:   0em;
+}
+.sidebarsubhead {
+    background:   #e8e8e8;
+    color:        #400000;
+}
+.indent {
+    margin-left: 1.5em;
+}
+.catcount {
+    color:      #707070;
+}
+.entry {
+    padding: 0px;
+}
+.entrytitlebar {
+    background: #ffffff;
+    margin-bottom: 1em;
+    padding-bottom: 2em;
+}
+.entrytitle {
+    margin-top:     10em;
+    padding-left: 12pt;
+    font-size: 160%;
+    font-variant: small-caps;
+}
+td.entrytitle {
+    border-bottom: 2px solid #ff0000;
+}
+.entrytitledetail {
+    text-align: right;
+    font-size: x-small;
+    padding-right: 12pt;
+}
+.entrybody {
+    padding-left: 36pt;
+    padding-right: 12pt;
+    padding-bottom: 12pt;
+    line-height:   130%;
+}
+.entrybody h1,h2,h3,h4 {
+    line-height: 100%;
+}
+.pagetitle {
+    font-size: xx-large;
+    font-family: Arial,Helvetica;
+    color:       #808080;
+}
+.titlemenu {
+    font-size: x-small;
+    font-family: Arial,Helvetica;
+    text-align:  right;
+}
+.schedhead {
+    font-size:   small;
+    font-family: Arial,Helvetica;
+    text-align:  right;
+    font-weight: bold;
+    background:  #403030;
+    color:       #c0c0c0;
+}
+.schedentry {
+    font-size:   small;
+    font-family: Arial,Helvetica;
+    text-align:  center;
+    background:  #d0c0c0;
+}
+.schedempty {
+    font-size:   small;
+    background:  #f0e0e0;
+}
+.sidebartable {
+    color:      #000000;
+}
+.c {
+    text-align: right;
+    padding-right: 0.5em;
+    padding-left:  0em;
+    padding-top:   0em;
+    padding-bottom:   0em;
+}
+.ctitle {
+    text-align: right;
+    padding-right: 0.5em;
+    padding-left:  0em;
+    padding-top:   0em;
+    padding-bottom:   0em;
+    border-bottom:    1px solid #d0d0d0;
+}
+.ctotal {
+    text-align: right;
+    padding-right: 0.5em;
+    padding-left:  0em;
+    padding-top:   0em;
+    padding-bottom:   0em;
+    border-top:    1px solid #d0d0d0;
+    border-bottom:    1px solid #d0d0d0;
+}
+.caltoday {
+    text-align: right;
+    font-weight: bold;
+    background: #e0e0e0;
+}
+.copyright {
+    text-align: right;
+    font-style: italic;
+}
+ul {
+    margin-left: 0em;
+    padding-left: 0em;
+}
+li {
+    margin-left: 1em;
+    padding-left: 0em;
+}
+
+
+#shopping-basket {
+  clear: left;
+  float: right;
+/*  border: 2px solid #dec5c5;*/
+ /* background-image: url(../images/1/shop/splash.gif);*/
+  background-color:#e2dede;
+  padding: 15px;
+  margin-bottom: 40px;
+  width: 180px;
+}
+#top-sellers h1,
+#shopping-basket h1,
+#tags h1 {
+  color:black;
+  margin: 0px;
+  padding: 0px;
+  font-size: 15px;
+  font-weight: bold;
+}
+#shopping-basket ul {
+  list-style-type: none;
+  margin: 0px 0px 10px 5px;
+  padding: 0px;
+}
+#top-sellers li,
+#shopping-basket li {
+  margin: 0px;
+  padding: 0px;
+}
+#shopping-basket #total-line {
+  clear:both;
+  padding: 5px;
+}
+
+#shopping-basket #total-line #total-text {
+  float:left;
+}
+
+#shopping-basket #total-line #total-amount {
+  float:right;
+}
+#shopping-basket button {
+  margin-left: 5px;
+}

@@ -1,0 +1,153 @@
+Script started on Fri 17 Apr 2009 11:49:17 AM CEST
+]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ ls
+[00m[01;34mapp[00m  [01;34mconfig[00m  [01;34mdb[00m  [01;34mdoc[00m  [00mgenerate[00m  [01;34mlib[00m  [01;34mlog[00m  [01;34mnbproject[00m  [01;34mpublic[00m  [00mRakefile[00m  [00mREADME[00m  [01;34mscript[00m  [01;34mtest[00m  [01;34mtmp[00m  [01;34mvendor[00m
+[m]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ ls app/models/
+[00m[00mimage.rb[00m  [00mskin.rb[00m  [00muser_mailer.rb[00m  [00muser_observer.rb[00m  [00muser.rb[00m
+[m]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ ls app/models/[Kess db/migrate/20090416163756_create_airports.rb mysql -uroot[Kless db/migrate/20090416163756_create_airports.rb [C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[C[Cs[K app/models/[Kscript/generate model address
+      exists  app/models/
+      exists  test/unit/
+      exists  test/fixtures/
+      create  app/models/address.rb
+      create  test/unit/address_test.rb
+      create  test/fixtures/addresses.yml
+      exists  db/migrate
+      create  db/migrate/20090417094946_create_addresses.rb
+]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ script/generate model address[K[K[K[K[K[K[Korder
+      exists  app/models/
+      exists  test/unit/
+      exists  test/fixtures/
+      create  app/models/order.rb
+      create  test/unit/order_test.rb
+      create  test/fixtures/orders.yml
+      exists  db/migrate
+      create  db/migrate/20090417094955_create_orders.rb
+]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ script/generate model order[K[K[K[K[Kline_item[K[K[K[K[K_item
+      exists  app/models/
+      exists  test/unit/
+      exists  test/fixtures/
+      create  app/models/line_item.rb
+      create  test/unit/line_item_test.rb
+      create  test/fixtures/line_items.yml
+      exists  db/migrate
+      create  db/migrate/20090417095031_create_line_items.rb
+]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ mysql -uroot -Ddepot_development
+Reading table information for completion of table and column names
+You can turn off this feature to get a quicker startup with -A
+
+Welcome to the MySQL monitor.  Commands end with ; or \g.
+Your MySQL connection id is 53
+Server version: 5.0.67-0ubuntu6 (Ubuntu)
+
+Type 'help;' or '\h' for help. Type '\c' to clear the buffer.
+
+mysql> desc address;
+ERROR 1146 (42S02): Table 'depot_development.address' doesn't exist
+mysql> desc address;e;s;
++--------------+--------------+------+-----+---------+----------------+
+| Field        | Type         | Null | Key | Default | Extra          |
++--------------+--------------+------+-----+---------+----------------+
+| id           | int(11)      | NO   | PRI | NULL    | auto_increment | 
+| first_name   | varchar(255) | YES  |     | NULL    |                | 
+| last_name    | varchar(255) | YES  |     | NULL    |                | 
+| address_1    | varchar(255) | YES  |     | NULL    |                | 
+| address_2    | varchar(255) | YES  |     | NULL    |                | 
+| town         | varchar(255) | YES  |     | NULL    |                | 
+| postcode     | varchar(255) | YES  |     | NULL    |                | 
+| country_code | varchar(255) | YES  |     | NULL    |                | 
+| created_at   | datetime     | YES  |     | NULL    |                | 
+| updated_at   | datetime     | YES  |     | NULL    |                | 
++--------------+--------------+------+-----+---------+----------------+
+10 rows in set (0.00 sec)
+
+mysql> exi
+    -> t
+    -> exit
+    -> ;
+ERROR 1064 (42000): You have an error in your SQL syntax; check the manual that corresponds to your MySQL server version for the right syntax to use near 'exi
+t
+exit' at line 1
+mysql> exit
+Bye
+]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ rake db:migrate
+(in /home/liam/rails-workspace/magicskin)
+==  CreateAddresses: migrating ================================================
+-- create_table(:addresses)
+   -> 0.0249s
+==  CreateAddresses: migrated (0.0250s) =======================================
+
+==  CreateOrders: migrating ===================================================
+-- create_table(:orders)
+   -> 0.0185s
+==  CreateOrders: migrated (0.0186s) ==========================================
+
+==  CreateLineItems: migrating ================================================
+-- create_table(:line_items)
+   -> 0.0043s
+-- execute("alter table line_items add constraint fk_line_item_skins\n           foreign key (skin_id) references skins(id)")
+   -> 0.0096s
+-- execute("alter table line_items add constraint fk_line_item_orders\n           foreign key (order_id) references orders(id)")
+   -> 0.0093s
+==  CreateLineItems: migrated (0.0234s) =======================================
+
+k]0;liam@liam-laptop: ~/rails-workspace/magicskinliam@liam-laptop:~/rails-workspace/magicskin$ k[Kscript/server 
+=> Booting WEBrick...
+=> Rails 2.2.2 application started on http://0.0.0.0:3000
+=> Ctrl-C to shutdown server; call with --help for options
+[2009-04-17 12:56:51] INFO  WEBrick 1.3.1
+[2009-04-17 12:56:51] INFO  ruby 1.8.7 (2008-08-11) [x86_64-linux]
+[2009-04-17 12:56:51] INFO  WEBrick::HTTPServer#start: pid=9178 port=3000
+127.0.0.1 - - [17/Apr/2009:12:56:59 CEST] "GET / HTTP/1.1" 500 17490
+- -> /
+127.0.0.1 - - [17/Apr/2009:12:59:10 CEST] "GET / HTTP/1.1" 500 17490
+- -> /
+127.0.0.1 - - [17/Apr/2009:12:59:36 CEST] "GET / HTTP/1.1" 500 17490
+- -> /
+127.0.0.1 - - [17/Apr/2009:12:59:38 CEST] "GET / HTTP/1.1" 500 17490
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:01:01 CEST] "GET / HTTP/1.1" 500 17119
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:01:59 CEST] "GET / HTTP/1.1" 500 17124
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:02:01 CEST] "GET / HTTP/1.1" 500 17124
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:03:32 CEST] "GET / HTTP/1.1" 500 17490
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:03:54 CEST] "GET / HTTP/1.1" 500 17486
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:06:49 CEST] "GET / HTTP/1.1" 500 17490
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:09:54 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:11:08 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:11:11 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:11:41 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:16:50 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:16:52 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:17:27 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:18:15 CEST] "GET / HTTP/1.1" 500 17194
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:19:42 CEST] "GET / HTTP/1.1" 500 17081
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:22:08 CEST] "GET / HTTP/1.1" 500 17135
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:22:27 CEST] "GET / HTTP/1.1" 500 17134
+- -> /
+127.0.0.1 - - [17/Apr/2009:13:23:09 CEST] "GET /site HTTP/1.1" 500 16564
+- -> /site
+127.0.0.1 - - [17/Apr/2009:13:23:41 CEST] "GET /site HTTP/1.1" 500 16564
+- -> /site
+127.0.0.1 - - [17/Apr/2009:13:24:30 CEST] "GET /site HTTP/1.1" 500 16564
+- -> /site
+127.0.0.1 - - [17/Apr/2009:13:26:13 CEST] "GET /site HTTP/1.1" 200 1448
+- -> /site
+127.0.0.1 - - [17/Apr/2009:13:26:13 CEST] "GET /stylesheets/style.css?1239871374 HTTP/1.1" 200 3848
+http://localhost:3000/site -> /stylesheets/style.css?1239871374
+127.0.0.1 - - [17/Apr/2009:13:26:13 CEST] "GET /images/2920JesusIsMagic.jpg?1239873985 HTTP/1.1" 200 16384
+http://localhost:3000/site -> /images/2920JesusIsMagic.jpg?1239873985
+127.0.0.1 - - [17/Apr/2009:13:27:02 CEST] "GE

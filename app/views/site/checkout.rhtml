@@ -1,0 +1,55 @@
+
+<%= error_messages_for 'order' %>
+<%= error_messages_for :address %>
+<fieldset>
+  <legend>Please Enter Your Details</legend>
+  <% form_for :order, :url => { :action => :save_order } do |form| %>
+    <div id='order-form'>
+      <% fields_for :address do |address| %>
+        <ul>
+          <li>First name*<br><%= address.text_field :first_name, :size => 20 %></li>
+          <li>Last name*<br><%= address.text_field :last_name, :size => 20 %></li>
+        </ul>
+        <ul>
+          <li>Address*<br><%= address.text_field :address_1, :size => 30 %></li>
+          <li>Address<br><%= address.text_field :address_2, :size => 30 %></li>
+        </ul>
+        <ul>
+          <li>Town*<br><%= address.text_field :town, :size => 20 %></li>
+          <li>Postcode<br><%= address.text_field :postcode, :size => 10 %></li>
+        </ul>
+        <ul>
+          <li>Country*<br><%= country_select :address, :country_code %></li>
+        </ul>
+      <% end %>
+
+      <!--user wants to be registered-->
+      <fieldset>
+      <legend>If you want to be registered as a user please fill out the following fields</legend>
+      <% fields_for :user do |user| %>
+        <p><label for="login">Login</label><br/>
+        <%= user.text_field :login, :size => 20 %></p>
+        <p><label for="password">Password</label><br/>
+        <%= user.password_field :password, :size => 20 %></p>
+        <p><label for="password_confirmation">Confirm Password</label><br/>
+        <%= user.password_field :password_confirmation, :size => 20 %></p>
+      <%end%>
+</fieldset>
+      <ul>
+        <li><label for="order_email" >E-Mail*</label><br>
+        <%= form.text_field :email, :size => 30 %></li>
+      </ul>
+      <ul>
+        <li><label for="order_pay_type" >Pay with*</label><br>
+          <%=
+          form.select :pay_type,
+            Order::PAYMENT_TYPES #, :prompt => "Select a payment method"
+        %></li>
+      </ul>
+      <br>
+      <p>*required</p>
+      <br>
+      <%= submit_tag "Place Order" , :class => "shop-button" %>
+    <% end %>
+  </div>
+</fieldset>

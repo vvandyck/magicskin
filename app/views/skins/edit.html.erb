@@ -1,0 +1,21 @@
+<h1>Editing skin</h1>
+
+<% form_for(@skin) do |f| %>
+  <%= f.error_messages %>
+  <p><label for="skin_name">name</label><br/>
+  <%= text_field 'skin', 'name'  %></p>
+  <p><label for="skin_width">width</label><br/>
+  <%= text_field 'skin', 'width'  %></p>
+  <p><label for="skin_height">height</label><br/>
+  <%= text_field 'skin', 'height'  %></p>
+  <p><label for="skin_public">public</label><br/>
+  <%= check_box 'skin', 'public'  %></p>
+  <p><label for="skin_active">active</label><br/>
+  <%= check_box 'skin', 'active'  %></p>
+  <p>
+    <%= f.submit "Update" %>
+  </p>
+<% end %>
+
+<%= link_to 'Show', @skin %> |
+<%= link_to 'Back', skins_path %>
