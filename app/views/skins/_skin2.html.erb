@@ -1,0 +1,5 @@
+<% fields_for @image do |image| %>
+  <p><label for="image_file">File</label><br/>
+  <input type="file" name="image[file]" /></p>
+  <input type="hidden" name="stage" value="2">
+<% end %>

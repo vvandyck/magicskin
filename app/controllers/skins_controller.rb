@@ -39,6 +39,9 @@ class SkinsController < ApplicationController
     @skin = Skin.find(params[:id])
   end
 
+  def create_next
+    logger.error "stage==#{params[:stage]}"
+  end
   # POST /skins
   # POST /skins.xml
   def create
